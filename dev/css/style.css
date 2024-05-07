@@ -1,0 +1,44 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: antiquewhite;
+}
+
+.matrix-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+h2 {
+  padding: 10px;
+  padding-bottom: 10px;
+  border: 1px solid black;
+  display: inline-block;
+  font-size: 30px;
+}
+
+.matrix-container table {
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.matrix {
+  border-collapse: collapse;
+}
+
+.cell {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #000;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 600;
+  font-size: 50px;
+  justify-content: center;
+}
+
+.unchanged-row {
+  background-color: yellow;
+}

@@ -65,23 +65,23 @@ async function allBrowsers () {
 
 //prod track
 let compileCSSForProd = () => {
-    return src(`styles/main.css`)
+    return src(`dev/css/*.css`)
         .pipe(sass.sync({
             outputStyle: `compressed`,
             precision: 10
         }).on(`error`, sass.logError))
-        .pipe(dest(`prod/styles`));
+        .pipe(dest(`prod/css`));
 };
 
 let transpileJSForProd = () => {
-    return src(`scripts/main.js`)
+    return src(`dev/js/*.js`)
         .pipe(babel())
         .pipe(jsCompressor())
-        .pipe(dest(`prod/scripts`));
+        .pipe(dest(`prod/js`));
 };
 
 let compressHTML = () => {
-    return src([`index.html`])
+    return src([`dev/html/index.html`])
         .pipe(htmlCompressor({collapseWhitespace: true}))
         .pipe(dest(`prod`));
 };
@@ -111,6 +111,7 @@ let serve = () => {
 
 };
 
+
 exports.validateHTML = validateHTML;
 exports.lintJS = lintJS;
 exports.lintCSS = lintCSS;
@@ -118,6 +119,8 @@ exports.compileCSSForDev = compileCSSForDev;
 exports.compileCSSForProd = compileCSSForProd;
 exports.transpileJSForProd = transpileJSForProd;
 exports.compressHTML = compressHTML;
+
+
 
 
 exports.allBrowsers = series(allBrowsers, serve);
